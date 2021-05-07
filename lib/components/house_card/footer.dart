@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 
+import 'package:house_listing/models/house.dart';
 import 'package:house_listing/components/icon.dart';
+import 'package:house_listing/screens/home_page/messages.dart';
 
 class Footer extends StatelessWidget {
-  final double amount;
-  final bool isFavorited;
+  final House house;
+  final bool hasFavoriteIcon;
 
   Footer({
-    this.amount,
-    this.isFavorited,
+    this.house,
+    this.hasFavoriteIcon,
   });
 
   @override
@@ -20,7 +22,7 @@ class Footer extends StatelessWidget {
           children: [
             CustomIcon(icon: Icons.monetization_on_outlined),
             Text(
-              _formatAmount(amount),
+              _formatAmount(house.amount),
               style: TextStyle(
                 color: Colors.green.shade700,
                 fontSize: 16,
@@ -29,14 +31,17 @@ class Footer extends StatelessWidget {
             ),
           ],
         ),
-        IconButton(
-          icon: Icon(isFavorited ? Icons.favorite : Icons.favorite_border),
-          tooltip: 'Favoritar',
-          onPressed: () {
-            Navigator.pushNamed(context, '/favoritos');
-          },
-          color: Colors.purple,
-        ),
+        hasFavoriteIcon
+            ? IconButton(
+                icon: Icon(
+                    house.isFavorited ? Icons.favorite : Icons.favorite_border),
+                tooltip: favoriteButtonTooltip,
+                onPressed: () {
+                  house.updateIsFavorited(house);
+                },
+                color: Colors.purple,
+              )
+            : Column(),
       ],
     );
   }

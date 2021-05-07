@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 
+import 'package:house_listing/models/house.dart';
 import 'package:house_listing/components/house_card/footer.dart';
 import 'package:house_listing/components/house_card/house_info.dart';
 import 'package:house_listing/components/house_card/location_info.dart';
 import 'package:house_listing/components/tag.dart';
-import 'package:house_listing/models/house.dart';
 
 class HouseCard extends StatelessWidget {
   final House house;
+  final bool hasFavoritedIcon;
 
   HouseCard({
     this.house,
+    this.hasFavoritedIcon = true,
   });
 
   @override
@@ -56,8 +58,8 @@ class HouseCard extends StatelessWidget {
               ),
             ),
             Footer(
-              amount: house.amount,
-              isFavorited: house.isFavorited,
+              house: house,
+              hasFavoriteIcon: hasFavoritedIcon,
             ),
           ],
         ),

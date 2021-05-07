@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:house_listing/components/icon.dart';
 
+import 'package:house_listing/components/icon.dart';
 import 'package:house_listing/components/typography/body.dart';
 
 class LocationInfo extends StatelessWidget {

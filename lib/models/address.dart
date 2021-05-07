@@ -3,9 +3,9 @@ class Address {
   final String neighborhood;
   final String city;
 
-  Address(
+  Address({
     this.street,
     this.neighborhood,
     this.city,
-  );
+  });
 }

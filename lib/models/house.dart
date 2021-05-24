@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:house_listing/models/address.dart';
 
 class House extends ChangeNotifier {
+  int id;
   final String houseType;
   final String businessType;
   final double amount;
@@ -13,6 +14,7 @@ class House extends ChangeNotifier {
   bool isFavorited;
 
   House({
+    this.id,
     this.houseType,
     this.businessType,
     this.amount,
@@ -20,12 +22,6 @@ class House extends ChangeNotifier {
     this.footage,
     this.address,
     this.thumbnail,
-    this.isFavorited,
+    this.isFavorited = false,
   });
-
-  updateIsFavorited(House house) {
-    house.isFavorited = !house.isFavorited;
-
-    notifyListeners();
-  }
 }

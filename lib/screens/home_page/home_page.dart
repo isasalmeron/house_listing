@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:house_listing/models/house.dart';
 import 'package:provider/provider.dart';
 
 import 'package:house_listing/models/houses.dart';

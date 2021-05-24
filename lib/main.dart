@@ -4,7 +4,8 @@ import 'package:house_listing/models/houses.dart';
 
 import 'package:house_listing/screens/favorites/favorites.dart';
 import 'package:house_listing/screens/home_page/home_page.dart';
-import 'package:house_listing/screens/register_house.dart';
+import 'package:house_listing/screens/register_house/register_house.dart';
+import 'package:house_listing/screens/register_house/teste.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -24,7 +25,8 @@ class HouseListingApp extends StatelessWidget {
         routes: {
           '/': (context) => HomePage(),
           '/favoritos': (context) => Favorites(),
-          '/cadastrar': (context) => RegisterHouse(),
+          // '/cadastrar': (context) => RegisterHouse(),
+          '/cadastrar': (context) => TextFieldDemo(),
         },
         theme: ThemeData(
           primarySwatch: Colors.purple,

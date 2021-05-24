@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'package:house_listing/models/house.dart';
 import 'package:house_listing/components/icon.dart';
+import 'package:house_listing/models/houses.dart';
 import 'package:house_listing/screens/home_page/messages.dart';
+import 'package:provider/provider.dart';
 
 class Footer extends StatelessWidget {
   final House house;
@@ -17,7 +19,7 @@ class Footer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: <Widget>[
+      children: [
         Row(
           children: [
             CustomIcon(icon: Icons.monetization_on_outlined),
@@ -37,7 +39,7 @@ class Footer extends StatelessWidget {
                     house.isFavorited ? Icons.favorite : Icons.favorite_border),
                 tooltip: favoriteButtonTooltip,
                 onPressed: () {
-                  house.updateIsFavorited(house);
+                  context.read<Houses>().updateIsFavorited(house.id);
                 },
                 color: Colors.purple,
               )
